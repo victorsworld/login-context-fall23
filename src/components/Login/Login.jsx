@@ -1,13 +1,48 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import "./Login.css"
 
 import { ThemeContext } from '../../context/ThemeContext'
+import {LoginContext, LoginDispatchContext} from '../../context/LoginContext'
 
 const Login = () => {
+const [value, setValue] = useState({
+  username: ''
+})
+
 
 const {theme} = useContext(ThemeContext)
+
+const login = useContext(LoginContext)
+const dispatch = useContext(LoginDispatchContext)
+
+
+const onChangeHandler = event => {
+  setValue({
+    ...value,
+    [event.target.name]: event.target.value
+  })
+}
+
   return (
-    <div id='login' className={theme}>Login {theme}</div>
+    <div id='login' className={theme}>
+
+    Username: {login.username}
+    <br />
+    <label htmlFor='username'>Username: </label>
+    <input 
+      type='text'
+      name='username'
+      value={value.username}
+      onChange={onChangeHandler}
+    />
+    <button onClick={() => dispatch({
+      type: "submit",
+      payload: value
+    })}>Submit</button>
+
+    
+    </div>
+
   )
 }
 

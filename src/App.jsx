@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Login from './components/Login/Login';
 
 import { ThemeContext } from "./context/ThemeContext";
+import { LoginProvider } from './context/LoginContext'
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -18,8 +19,11 @@ function App() {
       <ThemeContext.Provider value={
         {theme, setTheme, changeTheme}
         }>
-         <Home />
-         <Login />
+          {/* LoginProvider does not need value, because the actual is in the context file */}
+          <LoginProvider>
+              <Home />
+              <Login />
+          </LoginProvider>
       </ThemeContext.Provider>
     </div>
   )

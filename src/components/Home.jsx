@@ -3,13 +3,14 @@ import "./Home.css"
 import reactLogo from '/logos/react.svg'
 import viteLogo from '/logos/vite.svg'
 import {ThemeContext} from '../context/ThemeContext'
+import { LoginContext } from '../context/LoginContext'
 
 
 const Home = () => {
     const [count, setCount] = useState(0)
 
     const {theme, setTheme, changeTheme} = useContext(ThemeContext)
-    
+    const login = useContext(LoginContext)
 
   return (
     <>
@@ -22,7 +23,9 @@ const Home = () => {
         <img src={reactLogo} className="logo react" alt="React logo" />
       </a>
     </div>
+  
     <h1>Vite + React</h1>  
+    <h2>Welcome {login.username}</h2>
     <button onClick={changeTheme}>Change Theme: {theme}</button>
 
   </>
