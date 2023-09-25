@@ -1,0 +1,6 @@
+#login.dark {
+    border: 1px solid darkmagenta
+}
+#login.light {
+    border: 1px dashed lightcyan
+}
