@@ -27,7 +27,8 @@ const onChangeHandler = event => {
   return (
     <div id='login' className={theme}>
 
-    Username: {login.username}
+    Username: {login.username} 
+    <br/>
     Password: 
     <br />
     <label htmlFor='username'>Username: </label>
