@@ -3,7 +3,7 @@ import "./Login.css"
 
 import { ThemeContext } from '../../context/ThemeContext'
 import {LoginContext, LoginDispatchContext} from '../../context/LoginContext'
-import { submitLogin } from '../../context/loginContextHelper'
+import { fetchLogin, submitLogin } from '../../context/loginContextHelper'
 
 const Login = () => {
 const [value, setValue] = useState({
@@ -28,6 +28,7 @@ const onChangeHandler = event => {
     <div id='login' className={theme}>
 
     Username: {login.username}
+    Password: 
     <br />
     <label htmlFor='username'>Username: </label>
     <input 
@@ -40,8 +41,8 @@ const onChangeHandler = event => {
       type: "submit",
       payload: value
     })}>Submit</button> */}
-    <button onClick={() => submitLogin(dispatch, value)}>Submit</button>
-    
+    {/* <button onClick={() => submitLogin(dispatch, value)}>Submit</button> */}
+    <button onClick={() => fetchLogin(dispatch, value)}>Submit</button>
     </div>
 
   )
