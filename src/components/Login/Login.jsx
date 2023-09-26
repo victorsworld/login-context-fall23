@@ -3,6 +3,7 @@ import "./Login.css"
 
 import { ThemeContext } from '../../context/ThemeContext'
 import {LoginContext, LoginDispatchContext} from '../../context/LoginContext'
+import { submitLogin } from '../../context/loginContextHelper'
 
 const Login = () => {
 const [value, setValue] = useState({
@@ -35,11 +36,11 @@ const onChangeHandler = event => {
       value={value.username}
       onChange={onChangeHandler}
     />
-    <button onClick={() => dispatch({
+    {/* <button onClick={() => dispatch({
       type: "submit",
       payload: value
-    })}>Submit</button>
-
+    })}>Submit</button> */}
+    <button onClick={() => submitLogin(dispatch, value)}>Submit</button>
     
     </div>
 
